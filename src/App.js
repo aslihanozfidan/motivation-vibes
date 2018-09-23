@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Quote from './components/Quote';
+import Quote from './containers/Quote';
 import RandomBackground from './components/RandomBackground';
 
 class App extends Component {

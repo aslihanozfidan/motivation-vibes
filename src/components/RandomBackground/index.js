@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./style.css";
 
-const axios = require("axios");
-
 class RandomBackground extends Component {
   constructor(props) {
     super(props);
@@ -12,22 +10,26 @@ class RandomBackground extends Component {
     };
   }
 
-  getRandomBackground = () => {
-    axios
-      .get(
-        "https://api.unsplash.com/photos/random?client_id=c282bd4e5d5c9761c7af1f3a5e76e17e16613384df73f02789ec2876e5e53472"
-      )
-      .then(response => {
-        console.log(response, "in random background");
-        this.setState({ image: response.data.urls.full });
-      })
-      .catch(error => {
-        console.error(error, "in random background");
-      });
+  getRandomNumber = () => {
+    return Math.floor(Math.random() * 5);
+  };
+
+  setRandomThumbBackground = number => {
+    this.setState({
+      image: `http://localhost:5000/${number}_mini.jpg`
+    });
+  };
+
+  setRandomFullSizeBackground = number => {
+    this.setState({
+      image: `http://localhost:5000/${number}.jpg`
+    });
   };
 
   componentDidMount = () => {
-    this.getRandomBackground();
+    let randomNumber = this.getRandomNumber();
+    this.setRandomThumbBackground(randomNumber);
+    this.setRandomFullSizeBackground(randomNumber);
   };
 
   render() {
@@ -53,7 +55,7 @@ RandomBackground.defaultProps = {
 };
 
 RandomBackground.propTypes = {
-  image: PropTypes.string,
+  image: PropTypes.string
 };
 
 export default RandomBackground;

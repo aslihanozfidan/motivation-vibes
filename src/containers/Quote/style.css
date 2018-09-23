@@ -6,7 +6,7 @@
 }
 
 p {
-  max-width: 50%;
+  max-width: 80%;
   font-family: "Raleway", sans-serif;
   text-align: center;
   margin: auto;
@@ -14,13 +14,13 @@ p {
 }
 
 p:first-child {
-  font-size: 40px;
+  font-size: 4vw;
   font-style: italic;
 }
 
 p:first-child::after, p:first-child::before {
   content: "“";
-  font-size: 60px;
+  font-size: 6vw;
   padding-left: 15px;
 }
 p:first-child::before {
@@ -30,6 +30,6 @@ p:first-child::before {
 }
 
 p:nth-child(2) {
-  font-size: 25px;
+  font-size: 2vw;
   margin-top: 50px;
 }

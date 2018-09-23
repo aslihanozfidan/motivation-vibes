@@ -1,56 +1,18 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import "./style.css";
+import React from "react";
+import Loading from "../Loading";
 
-const axios = require("axios");
-
-class Quote extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      quote: "",
-      author: ""
-    };
-  }
-
-  getRandomQuote = () => {
-    axios
-      .get("https://talaikis.com/api/quotes/random/")
-      .then(response => {
-        console.log(response, "in quote");
-        this.setState({ quote: response.data.quote });
-        this.setState({ author: response.data.author });
-      })
-      .catch(error => {
-        console.error(error, "in quote");
-      });
-  };
-
-  componentDidMount = () => {
-    this.getRandomQuote();
-  };
-
-  render() {
-    const quoteArea = (
+const Quote = props => {
+  const quoteArea = (
+    <div>
       <div>
-        <div>
-          <p>{this.state.quote}</p>
-          <p>{this.state.author}</p>
-        </div>
+        <p>{props.quote}</p>
+        <p>{props.author}</p>
       </div>
-    );
-    return <div className="flex">{quoteArea}</div>;
-  }
-}
-
-Quote.defaultProps = {
-  quote: "",
-  author: ""
-};
-
-Quote.propTypes = {
-  quote: PropTypes.string,
-  author: PropTypes.string
+    </div>
+  );
+  const loadingArea = <Loading />;
+  let area = props.loading ? loadingArea : quoteArea;
+  return { ...area };
 };
 
 export default Quote;
