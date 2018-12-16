@@ -25,8 +25,8 @@ class RandomBackground extends Component {
     const randomNumber = this.getRandomNumber();
 
     return (
-      <img 
-        src={this.setRandomFullSizeBackground(randomNumber)}
+      <div
+        style={{backgroundImage: `url(${this.setRandomFullSizeBackground(randomNumber)})`}}
         className="random-image" />
     );
   }
