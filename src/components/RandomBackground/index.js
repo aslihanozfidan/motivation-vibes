@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from 'react-dom'
 import PropTypes from "prop-types";
 import "./style.css";
 
@@ -8,44 +9,25 @@ class RandomBackground extends Component {
     this.state = {
       image: ""
     };
+
+    this.baseApiUrl = "http://35.241.204.67/photos/"
   }
 
   getRandomNumber = () => {
-    return Math.floor(Math.random() * 5);
+    return Math.floor(Math.random() * 8);
   };
-
-  setRandomThumbBackground = number => {
-    this.setState({
-      image: `http://localhost:5000/${number}_mini.jpg`
-    });
-  };
-
+  
   setRandomFullSizeBackground = number => {
-    this.setState({
-      image: `http://localhost:5000/${number}.jpg`
-    });
-  };
-
-  componentDidMount = () => {
-    let randomNumber = this.getRandomNumber();
-    this.setRandomThumbBackground(randomNumber);
-    this.setRandomFullSizeBackground(randomNumber);
+    return `${this.baseApiUrl}${number}.jpg`
   };
 
   render() {
+    const randomNumber = this.getRandomNumber();
+
     return (
-      <div
-        style={{
-          backgroundImage: `url(${this.state.image})`,
-          backgroundSize: "cover",
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          top: 0,
-          zIndex: -1,
-          opacity: 0.5
-        }}
-      />
+      <img 
+        src={this.setRandomFullSizeBackground(randomNumber)}
+        className="random-image" />
     );
   }
 }

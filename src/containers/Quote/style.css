@@ -10,12 +10,13 @@ p {
   font-family: "Raleway", sans-serif;
   text-align: center;
   margin: auto;
-  color: #353535;
+  color: #ffffff;
 }
 
 p:first-child {
   font-size: 4vw;
   font-style: italic;
+  background-color: rgba(0,0,0,0.5);
 }
 
 p:first-child::after, p:first-child::before {
@@ -32,4 +33,5 @@ p:first-child::before {
 p:nth-child(2) {
   font-size: 2vw;
   margin-top: 50px;
+  font-weight: 600;
 }

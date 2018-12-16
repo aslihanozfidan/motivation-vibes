@@ -1,6 +1,11 @@
-.flex {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.random-image {
+  background-size: cover;
+  width: 103%;
+  height: 103%;
+  position: absolute;
+  left: -2%;
+  top: -2%;
+  z-index: -1;
+  opacity: 0.9;
+  filter: blur(6px)
 }
