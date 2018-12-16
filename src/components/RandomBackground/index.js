@@ -16,9 +16,9 @@ class RandomBackground extends Component {
   getRandomNumber = () => {
     return Math.floor(Math.random() * 8);
   };
-  
+
   setRandomFullSizeBackground = number => {
-    return `${this.baseApiUrl}${number}.jpg`
+    return `${this.baseApiUrl}${number}_mini.jpg`
   };
 
   render() {
