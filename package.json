@@ -1,17 +1,44 @@
 {
-  "name": "motivation-vibes",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "axios": "^0.18.0",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
-    "react-scripts": "1.1.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+	"name": "motivation-vibes",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@babel/core": "^7.4.0",
+		"@babel/plugin-proposal-class-properties": "^7.4.0",
+		"@babel/preset-react": "^7.0.0",
+		"axios": "^0.18.0",
+		"css-loader": "^2.1.1",
+		"mini-css-extract-plugin": "^0.5.0",
+		"optimize-css-assets-webpack-plugin": "^5.0.1",
+		"postcss-loader": "^3.0.0",
+		"react": "^16.5.1",
+		"react-dom": "^16.5.1",
+		"react-scripts": "1.1.5",
+		"terser-webpack-plugin": "^1.2.3"
+	},
+	"scripts": {
+		"start": "webpack-dev-server --compress --open --mode development",
+		"build": "webpack --mode production",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.0.0-beta.40",
+		"@babel/core": "^7.0.0-beta.40",
+		"@babel/preset-env": "^7.4.2",
+		"@babel/preset-react": "^7.0.0-beta.40",
+		"babel-loader": "^8.0.0-beta.0",
+		"babel-plugin-lodash": "^3.3.2",
+		"babel-plugin-react-transform": "^3.0.0",
+		"babel-preset-env": "^1.7.0",
+		"compression-webpack-plugin": "^2.0.0",
+		"html-loader": "^0.5.5",
+		"html-webpack-plugin": "^3.2.0",
+		"style-loader": "^0.23.1",
+		"uglifyjs-webpack-plugin": "^2.1.2",
+		"webpack": "^4.29.6",
+		"webpack-bundle-analyzer": "^3.1.0",
+		"webpack-cli": "^3.3.0",
+		"webpack-dev-server": "^3.2.1"
+	}
 }
