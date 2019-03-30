@@ -18,11 +18,11 @@ class QuoteContainer extends Component {
   getRandomQuote = () => {
     this.setState({ loading: true });
     axios
-      .get("https://talaikis.com/api/quotes/random/")
+      .get("https://quota.glitch.me/random")
       .then(response => {
         this.setState({
-          quote: response.data.quote,
-          author: response.data.author,
+          quote: response.data.quoteText,
+          author: response.data.quoteAuthor,
           loading: false
         });
       })
