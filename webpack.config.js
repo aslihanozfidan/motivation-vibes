@@ -1,32 +1,51 @@
 var path = require("path");
+const TerserPlugin = require('terser-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 var BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+
+const SRC_DIR = path.join(__dirname, "src");
+const DIST_DIR = path.join(__dirname, "dist");
 
 module.exports = {
 	mode: "production",
-	entry: "./src/index.js",
+	entry: "./src/index",
 	output: {
-		path: path.resolve(__dirname, "dist"),
+		path: DIST_DIR,
 		filename: "bundle.js"
 	},
 	resolve: {
 		extensions: [
-			".js"
+			".js",
+			".css"
 		]
 	},
 	module: {
 		rules: [
 			{
 				test: /(\.css$)/,
-				loaders: [
-					"style-loader",
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader
+					},
 					"css-loader"
 				]
 			},
 			{ test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: "url-loader?limit=1000000" },
 			{
+				test: /\.html$/,
+				use: [
+					{
+						loader: "html-loader",
+						options: { minimize: true }
+					}
+				]
+			},
+			{
 				test: /\.js$/,
+				include: SRC_DIR,
 				exclude: /node_modules/,
 				loader: "babel-loader",
 				query: {
@@ -42,17 +61,29 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new HtmlWebpackPlugin({
+			title: "Motivation Vibes",
+			path: DIST_DIR,
+			filename: "index.html"
+		}),
+		new MiniCssExtractPlugin({
+			path: DIST_DIR,
+			filename: "main.css"
+		}),
 		new CompressionPlugin({
 			algorithm: "gzip",
 			deleteOriginalAssets: true,
 			test: /\.js$|\.css$|\.html$/,
 			threshold: 10240,
 			minRatio: 0
-		}),
-		new BundleAnalyzerPlugin()
+		})
+		//new BundleAnalyzerPlugin()
 	],
 	optimization: {
 		minimizer: [
+			new TerserPlugin({
+				cache: true,
+			}),
 			new UglifyJsPlugin({
 				cache: true,
 				parallel: true,
