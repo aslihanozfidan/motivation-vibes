@@ -4,6 +4,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const SRC_DIR = path.join(__dirname, "src");
@@ -30,7 +31,7 @@ module.exports = {
 					{
 						loader: MiniCssExtractPlugin.loader
 					},
-					"css-loader"
+					"css-loader",
 				]
 			},
 			{ test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: "url-loader?limit=1000000" },
@@ -76,7 +77,11 @@ module.exports = {
 			test: /\.js$|\.css$|\.html$/,
 			threshold: 10240,
 			minRatio: 0
-		})
+		}),
+		new OptimizeCssAssetsPlugin({
+			canPrint: true,
+			minimize: true
+    })
 		//new BundleAnalyzerPlugin()
 	],
 	optimization: {
