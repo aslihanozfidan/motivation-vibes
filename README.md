@@ -2,16 +2,15 @@
 
 This project is designed to improve your perspective.
 
+[Github Page](https://aslihanozfidan.github.io/motivation-vibes/)
+
 ## Setup
 
 ```
 npm install
+npm run build
+npm run start
 ```
-```
-npm start
-```
-## Updating to New Releases
-
 
 ## License
 
