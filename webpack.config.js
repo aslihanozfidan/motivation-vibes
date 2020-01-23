@@ -63,9 +63,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: "Motivation Vibes",
-			path: DIST_DIR,
-			filename: "index.html"
+			template: "src/index.html"
 		}),
 		new MiniCssExtractPlugin({
 			path: DIST_DIR,
