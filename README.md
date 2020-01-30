@@ -9,7 +9,7 @@ This project is designed to improve your perspective.
 ```
 npm install
 npm run build
-npm run start
+npm run start:dev
 ```
 
 ## License
