@@ -1,18 +1,24 @@
-import React from "react";
-import Loading from "../Loading";
+import React from 'react'
+import PropTypes from 'prop-types'
+import Loading from '../Loading'
+import './style.css'
 
-const Quote = props => {
-  const quoteArea = (
+const Quote = ({ loading, quote, author }) => {
+  return (
     <div>
-      <div>
-        <p>{props.quote}</p>
-        <p>{props.author}</p>
+      <div className='quote-text-container'>
+        <Loading classNames={`loading-container ${loading ? 'show' : 'hidden'}`} />
+        <p className={`quote-text ${loading ? 'hidden' : 'show'}`}>{quote}</p>
       </div>
+      <p className={'quote-author'}>{author}</p>
     </div>
-  );
-  const loadingArea = <Loading />;
-  let area = props.loading ? loadingArea : quoteArea;
-  return { ...area };
-};
+  )
+}
 
-export default Quote;
+Quote.propTypes = {
+  loading: PropTypes.bool,
+  quote: PropTypes.string,
+  author: PropTypes.string
+}
+
+export default Quote

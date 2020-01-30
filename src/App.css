@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i");
 
-html, body, #root, .App {
+html,
+body,
+#root,
+.App {
   height: 100%;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity .3s ease-in;
+}
+
+.show {
+  opacity: 1;
+  transition: opacity .3s .7s ease-in;
 }

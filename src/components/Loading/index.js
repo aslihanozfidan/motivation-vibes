@@ -1,11 +1,21 @@
-import React from "react";
-import "./style.css";
-import loading from "../../../src/assets/loading.svg";
+import React from 'react'
+import PropTypes from 'prop-types'
+import './style.css'
+import loading from '../../../src/assets/loading.svg'
 
-const Loading = () => (
-	<div className="loading-container">
-		<img src={loading} alt="Loading" />
-	</div>
-);
+const Loading = ({ classNames }) => (
+  <div
+    className={[
+      'loading-container',
+      classNames
+    ].join(' ')}
+  >
+    <img src={loading} alt='Loading' />
+  </div>
+)
 
-export default Loading;
+Loading.propTypes = {
+  classNames: PropTypes.string
+}
+
+export default Loading

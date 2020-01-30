@@ -1,0 +1,49 @@
+.loading-container {
+  position: absolute;
+}
+
+.quote-text-container {
+  position: relative;
+  width: calc(80vw - 2rem);
+  height: calc(450px - 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.quote-text,
+.quote-author {
+  max-width: 80%;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  margin: auto;
+  color: #ffffff;
+  font-display: block;
+}
+
+.quote-text {
+  font-size: 4vw;
+  font-style: italic;
+}
+
+.quote-text::after,
+.quote-text::before {
+  content: "“";
+  font-size: 6vw;
+  padding-left: 15px;
+}
+
+.quote-text:before {
+  content: "”";
+  padding-left: 0px;
+  padding-right: 15px;
+}
+
+.quote-author {
+  font-size: 2vw;
+  margin-top: 50px;
+  font-weight: 600;
+}

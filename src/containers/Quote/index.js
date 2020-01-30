@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Quote from '../../components/Quote'
 import QuoteService from './../../services/QuoteService'
 import './style.css'
@@ -33,20 +32,12 @@ class QuoteContainer extends Component {
   render() {
     return (
       <div className='flex'>
-        <Quote author={this.state.author} quote={this.state.quote} loading={this.state.loading} />
+        <div className='quote-container'>
+          <Quote author={this.state.author} quote={this.state.quote} loading={this.state.loading} />
+        </div>
       </div>
     )
   }
-}
-
-QuoteContainer.defaultProps = {
-  quote: '',
-  author: ''
-}
-
-QuoteContainer.propTypes = {
-  quote: PropTypes.string,
-  author: PropTypes.string
 }
 
 export default QuoteContainer
