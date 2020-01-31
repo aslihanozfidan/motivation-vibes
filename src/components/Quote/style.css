@@ -4,8 +4,8 @@
 
 .quote-text-container {
   position: relative;
-  width: calc(80vw - 2rem);
-  height: calc(450px - 2rem);
+  min-height: calc(450px - 2rem);
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
