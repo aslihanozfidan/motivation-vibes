@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-
 import Quote from './containers/Quote';
 import RandomBackground from './containers/RandomBackground';
+import './App.css';
 
 class App extends Component {
   render() {

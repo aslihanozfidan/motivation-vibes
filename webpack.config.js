@@ -1,11 +1,12 @@
-var path = require('path')
+const path = require('path')
 const TerserPlugin = require('terser-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const SRC_DIR = path.join(__dirname, 'src')
 const DIST_DIR = path.join(__dirname, 'dist')
@@ -30,11 +31,10 @@ module.exports = {
         test: /(\.css$)/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: MiniCssExtractPlugin.loader
           },
           'css-loader'
         ]
-       
       },
       { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=1000000' },
       {
@@ -44,6 +44,13 @@ module.exports = {
             loader: 'html-loader',
             options: { minimize: true }
           }
+        ]
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+        exclude: /node_modules/,
+        use: [
+          'file-loader?name=[name].[ext]'
         ]
       },
       {
@@ -65,7 +72,28 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: './public/index.html',
+      filename: './index.html',
+      favicon: './public/favicons/favicon.ico'
+    }),
+    new WebpackPwaManifest({
+      name: 'Motivation Vibes',
+      short_name: 'Motivation-Vibes',
+      description: 'An instrument designed to improve your perspective.',
+      background_color: '#ffffff',
+      icons: [
+        {
+          src: path.resolve('./public/favicons/apple-icon.png'),
+          sizes: [
+            96,
+            128,
+            192,
+            256,
+            384,
+            512
+          ]
+        }
+      ]
     }),
     new MiniCssExtractPlugin({
       path: DIST_DIR,
