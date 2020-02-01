@@ -17,7 +17,10 @@ class QuoteContainer extends Component {
 
   getRandomQuote = async () => {
     this.setState({ loading: true })
-    const quoteData = await this.quoteService.getQuote()
+    let quoteData = await this.quoteService.getQuote()
+    if (quoteData.quote.length > 120) {
+      this.getRandomQuote()
+    }
     this.setState({
       quote: quoteData.quote,
       author: quoteData.author,
