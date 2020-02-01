@@ -1,6 +1,6 @@
 # Motivation Vibes
 
-This project is designed to improve your perspective.
+An instrument designed to improve your perspective
 
 [Github Page](https://aslihanozfidan.github.io/motivation-vibes/)
 
