@@ -1,10 +1,10 @@
 {
-  "name": "My Progressive Web App",
+  "name": "Motivation Vibes",
   "orientation": "portrait",
   "display": "standalone",
   "start_url": ".",
-  "short_name": "MyPWA",
-  "description": "My awesome Progressive Web App!",
+  "short_name": "Motivation-Vibes",
+  "description": "An instrument designed to improve your perspective.",
   "background_color": "#ffffff",
   "icons": [
     {
