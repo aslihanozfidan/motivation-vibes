@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './style.css'
-import loading from '../../../src/assets/loading.svg'
 
 function Loading({ classNames }) {
   return (
@@ -11,7 +10,7 @@ function Loading({ classNames }) {
         classNames
       ].join(' ')}
     >
-      <img src={loading} alt='Loading' />
+     <div class="loader"></div>
     </div>
   )
 }
