@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Loading from '../Loading'
 import './style.css'
 
-const Quote = ({ loading, quote, author }) => {
+function Quote({ loading, quote, author }) {
   return (
     <div>
       <div className='quote-text-container'>

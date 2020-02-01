@@ -7,4 +7,5 @@
 
 .quote-container {
   height: 450px;
+  max-height: 650px;
 }
