@@ -34,7 +34,7 @@
   z-index: 1;
   position: absolute;
   bottom: -40px;
-  right: -180px;
+  right: -18vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,6 +92,16 @@
   line-height: 1;
   margin-top: 50px;
   font-weight: 600;
+}
+
+@media (max-width: 420px) {
+  .tour-container {
+    right: -11vw;
+  }
+
+  .quote-author {
+    margin-top: 10px;
+  }
 }
 
 @keyframes pulse-white {
