@@ -10,7 +10,7 @@ function Loading({ classNames }) {
         classNames
       ].join(' ')}
     >
-     <div class="loader"></div>
+     <div className="loader"></div>
     </div>
   )
 }

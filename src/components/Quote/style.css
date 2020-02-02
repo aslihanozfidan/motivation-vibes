@@ -16,6 +16,19 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.btn-next {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  vertical-align: middle;
+  border-bottom: solid 30px #ffffff;
+  border-right: solid 30px #ffffff;
+  border-left: solid 30px transparent;
+  border-top: solid 30px transparent;
+  cursor: pointer;
+}
+
 .quote-text,
 .quote-author {
   max-width: 80vw;

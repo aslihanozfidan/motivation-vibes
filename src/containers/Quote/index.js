@@ -36,7 +36,12 @@ class QuoteContainer extends Component {
     return (
       <div className='flex'>
         <div className='quote-container'>
-          <Quote author={this.state.author} quote={this.state.quote} loading={this.state.loading} />
+          <Quote
+            author={this.state.author}
+            quote={this.state.quote}
+            loading={this.state.loading}
+            nextClick={() => this.getRandomQuote()}
+          />
         </div>
       </div>
     )
