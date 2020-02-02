@@ -11,7 +11,7 @@ function Quote({ loading, quote, author, nextClick }) {
         <p className={`quote-text ${loading ? 'hidden' : 'show'}`}>{quote}</p>
         <a className='btn-next' onClick={() => nextClick()} />
       </div>
-      <p className={'quote-author'}>{author}</p>
+      <p className={`quote-author ${loading ? 'hidden' : 'show'}`}>{author}</p>
     </div>
   )
 }
