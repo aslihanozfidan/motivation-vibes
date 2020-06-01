@@ -1,13 +1,18 @@
 const { get } = require('axios')
-const QUOTE_API = 'https://quota.glitch.me/random'
+const { getRandomInt } = require('../../helpers')
+const config = require('../../../config')
+const QUOTE_API = `${config.default.apiEndpoint}/quotes`
 
 class QuoteService {
   getQuote = async () => {
     return await get(QUOTE_API)
       .then((response) => {
+        const randomNumber = getRandomInt(response.data.length)
+        const selectedRandomQuote = response.data[randomNumber]
+
         return {
-          quote: response.data.quoteText,
-          author: response.data.quoteAuthor,
+          quote: selectedRandomQuote.quote,
+          author: selectedRandomQuote.owner,
           loading: false
         }
       })
